@@ -1,11 +1,12 @@
-<h1 align="left"><a href="https://github.com/MaxSihong/MyComplexFrame">类似商品规格列表</a></h1>
+<!DOCTYPE html>
+<html lang="en">
 
-📦 一个表单功能的小组件
+<head>
+    <meta charset="UTF-8">
+    <title>MyComplexFrame</title>
+</head>
 
-## 使用方式
-
-1. 添加样式
-   ```css
+<style>
     .mcf-panel-body {
         padding: 20px;
         border: 1px solid #ccc;
@@ -61,10 +62,9 @@
         line-height: 30px;
         margin-top: 28px;
     }
-   ```
+</style>
 
-2. 添加 `div` 盒子、添加按钮、还有主要的表单列表`id="items_list"`
-    ```html
+<body>
     <div class="mcf-panel-body">
         <div class="mcf-label">
             <label>下单商品：</label>
@@ -72,23 +72,36 @@
         </div>
 
         <div>
-            <div id="itesm_list">
+            <div id="items_list">
             </div>
         </div>
 
         <p><button class="mcf-btn" onclick="placeOrder()">下单</button></p>
     </div>
-    ```
 
-3. 引入`jQuery`和`组件的jQuery`
-   ```html
-    <script src="js/jquery.js"></script>
-    <script src="js/MyComplexFrame.js"></script>
-   ```
+    
+    <div class="mcf-panel-body">
+        <div class="mcf-label">
+            <label>下单商品2：</label>
+            <button class="mcf-btn" onclick="ComplexFrame2.$publicMethods.addItem()">添加</button>
+        </div>
 
-4. 实例化组件
-   ```javascript
-   var ComplexFrame = $('#items_list').myComplexFrame({
+        <div>
+            <div id="items_list2">
+            </div>
+        </div>
+
+        <p><button class="mcf-btn" onclick="placeOrder2()">下单2</button></p>
+    </div>
+
+    <br>
+</body>
+
+<script src="js/jquery.js"></script>
+<script src="js/MyComplexFrame.js"></script>
+
+<script type="text/javascript">
+    var ComplexFrame = $('#items_list').myComplexFrame({
         '_func': 'ComplexFrame', // 当前定义的变量，方便渲染时进行调用内部方法
         '_form_data': [{
                 'name': '微店商品订单ID', // item 名称
@@ -105,28 +118,25 @@
         ]
     });
 
-    // 多个则直接另外实例化即可，主要列表id和赋值的变量名要传入
-   var ComplexFrame2 = $('#items_list2').myComplexFrame({
+    
+    var ComplexFrame2 = $('#items_list2').myComplexFrame({
         '_func': 'ComplexFrame2', // 当前定义的变量，方便渲染时进行调用内部方法
         '_form_data': [{
-                'name': '微店商品订单ID', // item 名称
+                'name': '编号1', // item 名称
                 'type': 'text', // 表单类型
-                'placeholder': '字段：sub_order_id', // 输入框提示
-                '_keys': 'sub_order_id', // name名称
+                'placeholder': '', // 输入框提示
+                '_keys': 'num', // name名称
             },
             {
-                'name': '商品编码',
+                'name': '类别',
                 'type': 'text',
-                'placeholder': '字段：merchant_code',
-                '_keys': 'item_code',
+                'placeholder': '',
+                '_keys': 'type',
             },
         ]
     });
-   ```
 
-5. 表单提交获取参数
-   ```javascript
-   function placeOrder() {
+    function placeOrder() {
         ComplexFrame.$publicMethods.getAllItemsVal();
         let data = {
             items: ComplexFrame.$publicMethods.getAllItemsVal()
@@ -134,10 +144,16 @@
 
         console.log('下单数据', data)
     }
-   ```
 
----
+    
+    function placeOrder2() {
+        ComplexFrame.$publicMethods.getAllItemsVal();
+        let data = {
+            items: ComplexFrame2.$publicMethods.getAllItemsVal()
+        }
 
-## License
+        console.log('下单数据2', data)
+    }
+</script>
 
-MIT
+</html>
