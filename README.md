@@ -2,6 +2,10 @@
 
 📦 一个表单功能的小组件
 
+## 示例
+
+![img](https://github.com/MaxSihong/MyComplexFrame/blob/master/images/example.gif)
+
 ## 使用方式
 
 1. 添加样式
