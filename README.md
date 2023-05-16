@@ -63,7 +63,7 @@
     }
    ```
 
-2. 添加 `div` 盒子、添加按钮、还有主要的表单列表`id="items_list"`
+2. 添加 `div` 盒子、添加按钮、还有主要的表单列表 `id="items_list"` ;注意 `onclick` 内的 `ComplexFrame` 为js实例化赋值的变量名
     ```html
     <div class="mcf-panel-body">
         <div class="mcf-label">
