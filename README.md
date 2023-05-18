@@ -2,6 +2,9 @@
 
 📦 一个表单功能的小组件
 
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/MaxSihong/MyComplexFrame"></img>
+<img alt="license" src="https://img.shields.io/badge/license-MIT-blue"></img>
+
 ## 示例
 
 ![img](https://github.com/MaxSihong/MyComplexFrame/blob/master/images/example.gif)
@@ -139,8 +142,6 @@
         console.log('下单数据', data)
     }
    ```
-
----
 
 ## License
 
